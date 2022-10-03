@@ -15,7 +15,7 @@ const CartMain = ({ productsAdd, removeProduct, removeAll }) => {
         <div className="cart">
           {productsAdd.length === 0 ? (
             <>
-              <h4>Sua sacola está vazia</h4>
+              <h4>Sua carrinho está vazio!</h4>
               <span>Adicione itens</span>
             </>
           ) : (
@@ -43,7 +43,13 @@ const CartMain = ({ productsAdd, removeProduct, removeAll }) => {
               <TotalList>
                 <div className="total__products">
                   <h4>Total</h4>
-                  <span>{`R$ ${priceTotal},00`}</span>
+                  <span>
+                    {priceTotal.toLocaleString("pt-BR", {
+                      currency: "BRL",
+                      style: "currency",
+                      minimumFractionDigits: 2,
+                    })}
+                  </span>
                 </div>
                 <button onClick={removeAll}>Remover todos</button>
               </TotalList>

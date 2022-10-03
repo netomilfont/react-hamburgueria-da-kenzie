@@ -59,7 +59,11 @@ const ProductList = () => {
                 name={product.name}
                 image={product.img}
                 category={product.category}
-                price={` R$ ${product.price},00`}
+                price={`${product.price.toLocaleString("pt-BR", {
+                  currency: "BRL",
+                  style: "currency",
+                  minimumFractionDigits: 2,
+                })}`}
                 onClick={(event) => addCart(event)}
                 id={product.name}
               />
