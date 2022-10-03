@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import api from "../../services/api";
 import Container from "../Container";
 import Header from "../Header";
 import { List, Section } from "./styles";
@@ -15,10 +14,38 @@ const ProductList = () => {
       .then((response) => response.json())
       .then((json) => {
         setProducts(json);
-        console.log(json);
       });
-    // api.get("/products").then((response) => console.log(response));
   }, []);
+
+  function addCart(event) {
+    const id = event.target.id;
+
+    const clickedItem = products.find((element) => element.name === id);
+
+    const findItem = productsCart.some(
+      (product) => product.name === clickedItem.name
+    );
+    console.log(productsCart);
+    if (!findItem) {
+      setProductsCart([...productsCart, clickedItem]);
+    } else {
+      alert("Este item já está no carrinho.");
+    }
+  }
+
+  function removeProduct(event) {
+    const id = event.target.id;
+
+    const newProductsList = productsCart.filter(
+      (product) => product.name !== id
+    );
+
+    setProductsCart(newProductsList);
+  }
+
+  function removeAll() {
+    setProductsCart([]);
+  }
 
   return (
     <>
@@ -33,10 +60,16 @@ const ProductList = () => {
                 image={product.img}
                 category={product.category}
                 price={` R$ ${product.price},00`}
+                onClick={(event) => addCart(event)}
+                id={product.name}
               />
             ))}
           </List>
-          <Cart productsAdd={productsCart} />
+          <Cart
+            productsAdd={productsCart}
+            removeProduct={removeProduct}
+            removeAll={removeAll}
+          />
         </Section>
       </Container>
     </>

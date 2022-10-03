@@ -58,9 +58,12 @@ export const ButtonAdd = styled.button`
   font-family: "Inter", sans-serif;
   font-size: 0.875rem;
   width: 100px;
+  cursor: pointer;
+  transition: 0.3s;
 
   &:hover {
     background-color: var(--color-primary-50);
     color: #ffffff;
+    transition: 0.3s;
   }
 `;

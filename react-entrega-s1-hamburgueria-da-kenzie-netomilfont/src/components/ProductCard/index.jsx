@@ -1,6 +1,6 @@
 import { Card, ButtonAdd } from "./styles";
 
-const ProductCard = ({ name, image, category, price, onClick }) => {
+const ProductCard = ({ id, name, image, category, price, onClick }) => {
   return (
     <Card>
       <div className="img__product">
@@ -10,7 +10,10 @@ const ProductCard = ({ name, image, category, price, onClick }) => {
         <h3>{name}</h3>
         <span>{category}</span>
         <p>{price}</p>
-        <ButtonAdd onClick={onClick}> Adicionar</ButtonAdd>
+        <ButtonAdd onClick={onClick} id={id}>
+          {" "}
+          Adicionar
+        </ButtonAdd>
       </div>
     </Card>
   );

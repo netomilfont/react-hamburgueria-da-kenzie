@@ -36,14 +36,22 @@ export const Header = styled.header`
     border-radius: 8px;
     background-color: var(--color-primary);
     padding: 11.5px 20px;
+    font-family: "Inter", sans-serif;
     color: #ffffff;
     font-size: 0.875rem;
+    transition: 0.3s;
   }
 
   @media (min-width: 1024px) {
     div {
       flex-direction: row;
       justify-content: space-between;
+    }
+
+    button:hover {
+      transition: 0.3s;
+      background-color: var(--color-primary-50);
+      cursor: pointer;
     }
   }
 `;
