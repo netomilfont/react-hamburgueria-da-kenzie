@@ -17,7 +17,7 @@ export const Header = styled.header`
     box-sizing: border-box;
     border-radius: 8px;
     border: 2px solid var(--color-grey-20);
-    padding: 10px;
+    padding: 6px;
     height: 60px;
   }
 
@@ -37,6 +37,7 @@ export const Header = styled.header`
     background-color: var(--color-primary);
     padding: 11.5px 20px;
     color: #ffffff;
+    font-size: 0.875rem;
   }
 
   @media (min-width: 1024px) {

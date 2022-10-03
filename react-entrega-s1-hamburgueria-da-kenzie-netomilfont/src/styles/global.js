@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export default createGlobalStyle`
+export default createGlobalStyle`    
     :root  {
         --color-primary: #27AE60;
         --color-primary-50: #93D7AF;
@@ -39,6 +39,8 @@ export default createGlobalStyle`
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
+        font-family: 'Inter', sans-serif;
+
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure, 

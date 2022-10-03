@@ -1,13 +1,13 @@
 import Global from "./styles/global";
 import "./App.css";
-import Header from "./components/Header";
+import ProductList from "./components/ProductsList";
 
 function App() {
   return (
     <>
       <div className="App">
         <Global />
-        <Header />
+        <ProductList />
       </div>
     </>
   );
