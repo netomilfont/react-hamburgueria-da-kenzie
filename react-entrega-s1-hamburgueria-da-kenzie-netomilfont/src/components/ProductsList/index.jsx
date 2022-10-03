@@ -4,10 +4,13 @@ import Header from "../Header";
 import { List, Section } from "./styles";
 import ProductCard from "../ProductCard";
 import Cart from "../Cart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [productsCart, setProductsCart] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
@@ -25,11 +28,13 @@ const ProductList = () => {
     const findItem = productsCart.some(
       (product) => product.name === clickedItem.name
     );
-    console.log(productsCart);
+
     if (!findItem) {
       setProductsCart([...productsCart, clickedItem]);
     } else {
-      alert("Este item já está no carrinho.");
+      toast.error("Este item já está no carrinho.", {
+        position: "top-center",
+      });
     }
   }
 
@@ -47,13 +52,20 @@ const ProductList = () => {
     setProductsCart([]);
   }
 
+  const productsFiltered = products.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
-      <Header />
+      <Header
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
+      />
       <Container>
         <Section>
           <List>
-            {products.map((product) => (
+            {productsFiltered.map((product) => (
               <ProductCard
                 key={product.name}
                 name={product.name}
@@ -76,6 +88,7 @@ const ProductList = () => {
           />
         </Section>
       </Container>
+      <ToastContainer />
     </>
   );
 };

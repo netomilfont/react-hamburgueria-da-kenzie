@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Cart = styled.div`
   background-color: var(--color-grey-0);
   height: 35vh;
+  border-radius: 0 0 8px 8px;
 
   @media (min-width: 1024px) {
     width: 292px;

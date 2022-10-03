@@ -1,7 +1,6 @@
 import { Cart, ListCart, ProductCart, TotalList } from "./styles";
 
 const CartMain = ({ productsAdd, removeProduct, removeAll }) => {
-  console.log(productsAdd);
   let priceTotal = productsAdd.reduce((valorAnterior, valorAtual) => {
     return valorAtual.price + valorAnterior;
   }, 0);
