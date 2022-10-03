@@ -48,6 +48,17 @@ export const ListCart = styled.ul`
   width: 100%;
   height: 100%;
   overflow-y: auto;
+
+  @media (min-width: 1024px) {
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--color-grey-20);
+      border-radius: 8px;
+    }
+  }
 `;
 
 export const ProductCart = styled.li`
